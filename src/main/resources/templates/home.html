@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket System</title>
+
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+
+<body>
+
+    <header>
+    <div class="header-content">
+
+        <h1>Ticket System</h1>
+
+        <form th:action="@{/logout}" method="post">
+            <button
+                type="submit"
+                class="logout-button">
+                Sair
+            </button>
+        </form>
+
+    </div>
+    </header>
+    <main>
+
+        <div class="page-header">
+            <h2>Tickets</h2>
+
+            <a class="new-ticket-button" th:href="@{/tickets/new}">
+                Novo Ticket
+            </a>
+        </div>
+
+        <div class="filter-container">
+            <label for="status-filter">Filtrar por status</label>
+
+            <select id="status-filter">
+                <option value="">Todos</option>
+                <option value="OPEN">Aberto</option>
+                <option value="IN_PROGRESS">Em andamento</option>
+                <option value="RESOLVED">Resolvido</option>
+                <option value="CLOSED">Encerrado</option>
+            </select>
+        </div>
+
+        <div class="filter-container">
+            <label for="priority-filter">Filtrar por prioridade</label>
+
+            <select id="priority-filter">
+                <option value="">Todas</option>
+                <option value="LOW">Baixa</option>
+                <option value="MEDIUM">Média</option>
+                <option value="HIGH">Alta</option>
+                <option value="URGENT">Crítica</option>
+            </select>
+        </div>
+        <div class="ticket-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Ticket</th>
+                        <th>Projeto</th>
+                        <th>Responsável</th>
+                        <th>Status</th>
+                        <th>Prioridade</th>
+                    </tr>
+                </thead>
+
+                <tbody id="ticket-list">
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
